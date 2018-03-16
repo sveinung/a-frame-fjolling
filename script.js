@@ -1,5 +1,6 @@
 const cameraElement = document.querySelector('#avatar');
-const ball = document.querySelector('#ball');
+const ballTemplate = document.querySelector('template').content;
+const scene = document.querySelector('a-scene');
 const jumpAccelerationTreshold = 20;
 
 let jumping = false;
@@ -15,9 +16,17 @@ function jump() {
 }
 
 function dropBall() {
-  let ballPos = ball.getAttribute('position')
+  let ball = document.importNode(ballTemplate, true)
+  debugger
+  let ballPos = {
+    x: Math.random() * 10.0 - 5.0,
+    y: Math.random() *  5.0 + 2.0,
+    z: Math.random() * 10.0 - 5.0
+  }
   let anim = ball.children[0]
+  ball.setAttribute('position', ballPos) 
   anim.setAttribute('to', `${ballPos.x} 1 ${ballPos.z}`)
+  scene.appendChild(ball)
 
   ball.dispatchEvent(new CustomEvent('drop'))
 }
@@ -35,8 +44,8 @@ window.addEventListener('devicemotion', (e) => {
   }
 }, true);
 
-//window.addEventListener('grab-end', dropBall, true)
-//window.addEventListener('click', dropBall, true)
+window.addEventListener('trackpadup', dropBall, true)
+window.addEventListener('click', dropBall, true)
 
 
 
