@@ -1,5 +1,4 @@
 const cameraElement = document.querySelector('#avatar');
-const remote = document.querySelector('#remote');
 const jumpAccelerationTreshold = 20;
 
 let jumping = false;
