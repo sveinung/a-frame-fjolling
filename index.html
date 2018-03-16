@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello!</title>
+    <title></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,15 +16,15 @@
         <img id="grid" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous"/>
         <img id="sky" src="https://img.gs/bbdkhfbzkk/2048x2048,stretch/http://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous" />
       </a-assets>
-      
      
-      <a-entity id="avatar" position="0 1.3 0" wasd-controls look-controls camera super-hands sound="src: url(https://cdn.glitch.com/b9da6fb8-cabc-43cb-b601-fbf2a90bdc29%2Fjump.ogg?1521133485527); autoplay: false; on: jump" >
+      <a-entity id="avatar" position="0 1.3 0" wasd-controls look-controls camera super-hands 
+                sound="src: url(https://cdn.glitch.com/b9da6fb8-cabc-43cb-b601-fbf2a90bdc29%2Fjump.ogg?1521133485527); autoplay: false; on: jump" >
         <a-entity progressive-controls position="0 0 0">
           <a-entity raycaster></a-entity>
 
           <!-- Jump up and fall down-->
           <a-animation begin="jump" attribute="position" dur="200" to="0 5 0" easing="linear"></a-animation>
-          <a-animation begin="jump" attribute="position" dur="200" from="0 5 0" to="0 0 0" easing="linear" delay="300"></a-animation>            
+          <a-animation begin="jump" attribute="position" dur="200" from="0 5 0" to="0 1.3 0" easing="linear" delay="300"></a-animation>            
           
           <!-- Controllers -->
           <a-entity class="right-controller" super-hands teleport-controls></a-entity>
@@ -32,14 +32,14 @@
         </a-entity>
       </a-entity>
 
-      <a-sphere id="ball" grabbable dynamic-body="shape: sphere; mass: 100; sphereRadius: 1" position="0 2 -0.2"></a-sphere>
+      <a-sphere id="ball" grabbable dynamic-body="shape: sphere; mass: 100;" position="0 0.7 -1"></a-sphere>
       
       <!-- Environment -->
       
       <!-- Ground -->
       <a-entity static-body
-        geometry="primitive: box; width: 10000; height: 0.5;depth: 10000" position="0 -0.25 0"
-        material="src: #grid; repeat: 10000 10000; transparent: true; metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"></a-entity>
+        geometry="primitive: box; width: 10000; height: 0.5; depth: 10000" position="0 -0.25 0"
+        material="src: #grid; repeat: 10000 10000; metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"></a-entity>
 
       <!-- Lights -->
       <a-entity light="type: directional; color: #00d2ff; target: #turquoiseTarget; groundColor: #00d2ff" position="0 -1 0">
