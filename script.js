@@ -1,25 +1,12 @@
 const cameraElement = document.querySelector('#avatar');
 const ball = document.querySelector('#ball');
 const jumpAccelerationTreshold = 20;
-let ballInSpace = true
-
-ball.addEventListener('mouseup', function() {
-  if (this.components['dynamic-body'].body.velocity.x > 0.1 || 
-      this.components['dynamic-body'].body.velocity.y > 0.1 ||
-      this.components['dynamic-body'].body.velocity.z > 0.1) {
-    this.dispatchEvent(new CustomEvent('throwBall'))
-    setTimeout(function(){ 
-      ball.setAttribute('visible', 'false')
-      ballInSpace = false
-    }, 10000)
-  }
-})
 
 let jumping = false;
 
 function jump() {
   if (!jumping) {
-    //jumping = true;
+    jumping = true;
     cameraElement.dispatchEvent(new CustomEvent('jump'))
     setTimeout(function(){
       jumping = false;
@@ -27,14 +14,12 @@ function jump() {
   }
 }
 
-function resetBall() {
-  if (!ballInSpace) {
-    ballInSpace = true
-    ball.removeAttribute('dynamic-body')
-    ball.setAttribute('position', '0 0.7 -1')
-    ball.setAttribute('visible', 'true')
-    ball.setAttribute('dynamic-body', 'shape: sphere; mass: 100;')
-  }
+function dropBall() {
+  let ballPos = ball.getAttribute('position')
+  let anim = ball.children[0]
+  anim.setAttribute('to', `${ballPos.x} 1 ${ballPos.z}`)
+
+  ball.dispatchEvent(new CustomEvent('drop'))
 }
 
 document.addEventListener('keydown', (e) => {
@@ -50,6 +35,20 @@ window.addEventListener('devicemotion', (e) => {
   }
 }, true);
 
-window.addEventListener('trackpadup', resetBall, true)
-window.addEventListener('click', resetBall, true)
+window.addEventListener('trackpadup', dropBall, true)
+window.addEventListener('click', dropBall, true)
 
+
+
+// this is the listener we would use if we were using physics
+// ball.addEventListener('mouseup', function() {
+//   if (this.components['dynamic-body'].body.velocity.x > 0.1 || 
+//       this.components['dynamic-body'].body.velocity.y > 0.1 ||
+//       this.components['dynamic-body'].body.velocity.z > 0.1) {
+//     this.dispatchEvent(new CustomEvent('throwBall'))
+//     setTimeout(function(){ 
+//       ball.setAttribute('visible', 'false')
+//       ballInSpace = false
+//     }, 10000)
+//   }
+// })

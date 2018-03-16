@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
-    <!--script src="aframe-physics-system.js"></script-->
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.0.2/dist/aframe-physics-system.min.js"></script>
+    <!--script src="aframe-physics-system.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.0.2/dist/aframe-physics-system.min.js"></script-->
     <script src="https://unpkg.com/super-hands@2.0.1/dist/super-hands.min.js"></script>
   </head>
   <body>
@@ -33,8 +33,10 @@
         <a-entity class="left-controller" super-hands></a-entity>
       </a-entity>
 
-      <a-sphere id="ball" grabbable dynamic-body="shape: sphere; mass: 100;" position="0 0.7 -1"
-                sound="src: url(https://cdn.glitch.com/ed38cda4-8b9e-460f-83fa-3c9f7ed0bf7e%2Fsfx_throw.wav?1521187676351); autoplay: false; on: throwBall"></a-sphere>
+      <a-sphere id="ball" grabbable dynamic-body="shape: sphere; mass: 100;" position="0 1 -1"
+                sound="src: url(https://cdn.glitch.com/ed38cda4-8b9e-460f-83fa-3c9f7ed0bf7e%2Fsfx_throw.wav?1521187676351); autoplay: false; on: throwBall">
+        <a-animation begin="drop" attribute="position" dur="500" to="0 0 0" easing="linear"></a-animation>            
+      </a-sphere>
       
       <!-- Environment -->
       
