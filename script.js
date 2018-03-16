@@ -1,11 +1,17 @@
 const cameraElement = document.querySelector('#avatar');
+const ball = document.querySelector('#ball');
 const jumpAccelerationTreshold = 20;
+
+ball.addEventListener('mouseup', function() {
+  this.dispatchEvent(new CustomEvent('throwBall'))
+  console.log('yay');
+})
 
 let jumping = false;
 
 function jump() {
   if (!jumping) {
-    jumping = true;
+    //jumping = true;
     cameraElement.dispatchEvent(new CustomEvent('jump'))
     setTimeout(function(){
       jumping = false;

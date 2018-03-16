@@ -20,19 +20,21 @@
       <a-entity id="avatar" position="0 1.3 0" wasd-controls look-controls camera super-hands 
                 sound="src: url(https://cdn.glitch.com/b9da6fb8-cabc-43cb-b601-fbf2a90bdc29%2Fjump.ogg?1521133485527); autoplay: false; on: jump" >
         <a-entity progressive-controls position="0 0 0">
-          <a-entity raycaster></a-entity>
-
-          <!-- Jump up and fall down-->
-          <a-animation begin="jump" attribute="position" dur="200" to="0 5 0" easing="linear"></a-animation>
-          <a-animation begin="jump" attribute="position" dur="200" from="0 5 0" to="0 1.3 0" easing="linear" delay="300"></a-animation>            
+          <a-entity raycaster></a-entity>    
           
           <!-- Controllers -->
           <a-entity class="right-controller" super-hands teleport-controls></a-entity>
           <a-entity class="left-controller" super-hands teleport-controls></a-entity>
         </a-entity>
+        
+        <!-- Jump up and fall down-->
+        <a-animation begin="jump" attribute="position" dur="200" to="0 5 0" easing="linear"></a-animation>
+        <a-animation begin="jump" attribute="position" dur="200" from="0 5 0" to="0 1.3 0" easing="linear" delay="300"></a-animation>            
+
       </a-entity>
 
-      <a-sphere id="ball" grabbable dynamic-body="shape: sphere; mass: 100;" position="0 0.7 -1"></a-sphere>
+      <a-sphere id="ball" grabbable dynamic-body="shape: sphere; mass: 100;" position="0 0.7 -1"
+                sound="src: url(https://cdn.glitch.com/ed38cda4-8b9e-460f-83fa-3c9f7ed0bf7e%2Fsfx_throw.wav?1521187676351); autoplay: false; on: throwBall"></a-sphere>
       
       <!-- Environment -->
       
