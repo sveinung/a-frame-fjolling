@@ -1,12 +1,16 @@
-const cameraElement = document.querySelector('#avatar');
+const cameraElement = document.querySelector('#avatar').querySelector('[camera]');
 const ball = document.querySelector('#ball');
 const jumpAccelerationTreshold = 20;
+let ballInSpace = true
 
 ball.addEventListener('mouseup', function() {
   if (this.components['dynamic-body'].body.velocity.x > 0.1 || 
       this.components['dynamic-body'].body.velocity.y > 0.1 ||
       this.components['dynamic-body'].body.velocity.z > 0.1) {
     this.dispatchEvent(new CustomEvent('throwBall'))
+    setTimeout(function(){ 
+      ball.setAttribute('visible', 'false')
+    }, 10000)
   }
 })
 
@@ -22,6 +26,14 @@ function jump() {
   }
 }
 
+function resetBall() {
+  if (!ballInSpace) {
+    ballInSpace = true
+    ball.setAttribute('position', '0 0.7 -1')
+    ball.setAttribute('visible', 'true')
+  }
+}
+
 document.addEventListener('keydown', (e) => {
   if (e.key === ' ') {
     jump();
@@ -34,3 +46,7 @@ window.addEventListener('devicemotion', (e) => {
     jump();
   }
 }, true);
+
+window.addEventListener('trackpadup', resetBall, true)
+window.addEventListener('click', resetBall, true)
+
