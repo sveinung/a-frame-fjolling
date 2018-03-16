@@ -35,8 +35,8 @@ window.addEventListener('devicemotion', (e) => {
   }
 }, true);
 
-window.addEventListener('trackpadup', dropBall, true)
-window.addEventListener('click', dropBall, true)
+//window.addEventListener('grab-end', dropBall, true)
+//window.addEventListener('click', dropBall, true)
 
 
 
