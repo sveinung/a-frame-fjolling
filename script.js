@@ -22,5 +22,7 @@ window.addEventListener('devicemotion', (e) => {
   const accel = e.accelerationIncludingGravity;
   
   const accelerationThreshold = 20;
-  if (accel && accel.x > accelerationThreshold
+  if (accel && accel.x > accelerationThreshold) {
+    jump();
+  }
 });

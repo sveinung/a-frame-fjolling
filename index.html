@@ -20,10 +20,6 @@
       <a-sky src="#sky" rotation="0 0 0"></a-sky>
       <a-entity id="particles" particle-system="preset: snow"></a-entity>
       
-      <a-box position="0 3 0"
-             material="src: #grid"
-             rotation="-45 -45 -45"></a-box>
-      
       <a-entity id="avatar" camera look-controls wasd-controls position="0 1.6 0"
                 >
         <a-animation begin="jump" attribute="position" duration="200" to="0 5 0" easing="linear"></a-animation>
@@ -31,7 +27,9 @@
       </a-entity>
       
       <a-entity>
-        <a-entity position="5 0 0"></a-entity>
+        <a-box position="0 3 0"
+             material="src: #xgrid"
+             rotation="-45 -45 -45"></a-box>
         <a-animation attribute="rotation"
                      dur="10000"
                      fill="forwards"
