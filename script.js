@@ -3,8 +3,11 @@ const ball = document.querySelector('#ball');
 const jumpAccelerationTreshold = 20;
 
 ball.addEventListener('mouseup', function() {
-  this.dispatchEvent(new CustomEvent('throwBall'))
-  console.log('yay');
+  if (this.components['dynamic-body'].body.velocity.x > 0.1 || 
+      this.components['dynamic-body'].body.velocity.y > 0.1 ||
+      this.components['dynamic-body'].body.velocity.z > 0.1) {
+    this.dispatchEvent(new CustomEvent('throwBall'))
+  }
 })
 
 let jumping = false;
