@@ -11,8 +11,8 @@
   <body>
     <a-scene>
       <a-assets>
-        <img id="grid" src="https://g.acdn.no/obscura/API/dynamic/r1/ece5/tr_1080_1297_l_f/0000/haug/2018/3/15/11/SteinInge.jpg?chk=45F27C" />
-        <img id="xgrid" src="https://cdn.glitch.com/8048e1a1-a8cf-42cc-b96f-d4e89e8e3842%2Fgrid_white.png?1514332733491" crossorigin="anonymous"/>
+        <img id="xgrid" src="https://g.acdn.no/obscura/API/dynamic/r1/ece5/tr_1080_1297_l_f/0000/haug/2018/3/15/11/SteinInge.jpg?chk=45F27C" />
+        <img id="grid" src="https://cdn.glitch.com/8048e1a1-a8cf-42cc-b96f-d4e89e8e3842%2Fgrid_white.png?1514332733491" crossorigin="anonymous"/>
         <img id="sky" src="https://img.gs/bbdkhfbzkk/2048x2048,stretch/http://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous" />
         <img id="meg" src="https://www.facebook.com/photo.php?fbid=10153692712135181&set=a.10150298755360181.549260.818810180&type=3&source=11&referrer_profile_id=818810180" />
       </a-assets>
@@ -22,7 +22,22 @@
       
       <a-box position="0 3 0"
              material="src: #grid"
-             rotation="0 0 0"></a-box>
+             rotation="-45 -45 -45"></a-box>
+      
+      <a-entity id="avatar" camera look-controls wasd-controls position="0 1.6 0"
+                >
+        <a-animation begin="jump" attribute="position" duration="200" to="0 5 0" easing="linear"></a-animation>
+        <a-animation begin="jump" attribute="position" duration="200" from="0 5 0" to="0 1.6 0" easing="linear"></a-animation>
+      </a-entity>
+      
+      <a-entity>
+        <a-entity position="5 0 0"></a-entity>
+        <a-animation attribute="rotation"
+                     dur="10000"
+                     fill="forwards"
+                     to="0 360 0"
+                     repeat="indefinite"></a-animation>
+      </a-entity>
       
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
       
