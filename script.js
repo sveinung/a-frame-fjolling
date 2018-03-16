@@ -1,4 +1,4 @@
-const cameraElement = document.querySelector('#avatar').querySelector('[camera]');
+const cameraElement = document.querySelector('#avatar');
 const ball = document.querySelector('#ball');
 const jumpAccelerationTreshold = 20;
 let ballInSpace = true
@@ -10,6 +10,7 @@ ball.addEventListener('mouseup', function() {
     this.dispatchEvent(new CustomEvent('throwBall'))
     setTimeout(function(){ 
       ball.setAttribute('visible', 'false')
+      ballInSpace = false
     }, 10000)
   }
 })
@@ -29,8 +30,10 @@ function jump() {
 function resetBall() {
   if (!ballInSpace) {
     ballInSpace = true
+    ball.removeAttribute('dynamic-body')
     ball.setAttribute('position', '0 0.7 -1')
     ball.setAttribute('visible', 'true')
+    ball.setAttribute('dynamic-body', 'shape: sphere; mass: 100;')
   }
 }
 
