@@ -14,19 +14,30 @@
         <img id="grid" src="https://g.acdn.no/obscura/API/dynamic/r1/ece5/tr_1080_1297_l_f/0000/haug/2018/3/15/11/SteinInge.jpg?chk=45F27C" />
         <img id="xgrid" src="https://cdn.glitch.com/8048e1a1-a8cf-42cc-b96f-d4e89e8e3842%2Fgrid_white.png?1514332733491" crossorigin="anonymous"/>
         <img id="sky" src="https://img.gs/bbdkhfbzkk/2048x2048,stretch/http://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous" />
+        <img id="meg" src="https://www.facebook.com/photo.php?fbid=10153692712135181&set=a.10150298755360181.549260.818810180&type=3&source=11&referrer_profile_id=818810180" />
       </a-assets>
      
       <a-sky src="#sky" rotation="0 0 0"></a-sky>
       <a-entity id="particles" particle-system="preset: snow"></a-entity>
+      
+      <a-box position="0 3 0"
+             material="src: #grid"
+             rotation="0 0 0"></a-box>
+      
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
       
       <a-entity geometry="primitive: plane; width: 100; height: 100"
                 position="0 -0.25 0"
                 rotation="-90 0 0"
                 material="src: #grid; repeat: 100 100; metalness:0.6; roughness:0.4; sphericalEnvMap: #sky"></a-entity>
       
-      <a-entity light="type:directional; color: #ff00ff; target: #turquiseTarget;" position="0 2 -2">
+      <a-entity light="type:directional; color: #ff00ff; target: #turquiseTarget; groundColor: #00d2ff" position="0 2 -2">
         <a-entity id="turquiseTarget" position="0 1 0"></a-entity>
       </a-entity>
+      <a-entity light="type:directional; color: #d200d2; target: #pingTarget; groundColor: #00d2ff" position="0 2 -2">
+        <a-entity id="pingTarget" position="0 -1 0"></a-entity>
+      </a-entity>
+      <a-entity light="type: ambient; color: #333"></a-entity>
       
     </a-scene>
     <script src="/script.js"></script>
