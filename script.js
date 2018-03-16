@@ -16,16 +16,15 @@ function jump() {
 }
 
 function dropBall() {
-  let ball = document.importNode(ballTemplate, true)
-  debugger
+  let ball = document.importNode(ballTemplate, true).querySelector('a-sphere')
   let ballPos = {
     x: Math.random() * 10.0 - 5.0,
-    y: Math.random() *  5.0 + 2.0,
-    z: Math.random() * 10.0 - 5.0
+    y: Math.random() *  5.0 + 3.0,
+    z: Math.random() * 10.0 - 5.0,
   }
   let anim = ball.children[0]
   ball.setAttribute('position', ballPos) 
-  anim.setAttribute('to', `${ballPos.x} 1 ${ballPos.z}`)
+  anim.setAttribute('to', `${ballPos.x} 0.5 ${ballPos.z}`)
   scene.appendChild(ball)
 
   ball.dispatchEvent(new CustomEvent('drop'))
@@ -45,9 +44,7 @@ window.addEventListener('devicemotion', (e) => {
 }, true);
 
 window.addEventListener('trackpadup', dropBall, true)
-window.addEventListener('click', dropBall, true)
-
-
+window.addEventListener('rightclick', dropBall, true)
 
 // this is the listener we would use if we were using physics
 // ball.addEventListener('mouseup', function() {
