@@ -11,17 +11,15 @@
   <body>
     <a-scene>
       <a-assets>
-        <img id="xgrid" src="https://g.acdn.no/obscura/API/dynamic/r1/ece5/tr_1080_1297_l_f/0000/haug/2018/3/15/11/SteinInge.jpg?chk=45F27C" />
-        <img id="grid" src="https://cdn.glitch.com/8048e1a1-a8cf-42cc-b96f-d4e89e8e3842%2Fgrid_white.png?1514332733491" crossorigin="anonymous"/>
-        <img id="sky" src="https://img.gs/bbdkhfbzkk/2048x2048,stretch/http://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous" />
-        <img id="meg" src="https://www.facebook.com/photo.php?fbid=10153692712135181&set=a.10150298755360181.549260.818810180&type=3&source=11&referrer_profile_id=818810180" />
+        <img id="xgrid" src="/images/SteinInge.jpg" />
+        <img id="grid" src="/images/cross.png" crossorigin="anonymous"/>
+        <img id="sky" src="/images/sky.jpg" crossorigin="anonymous" />
       </a-assets>
      
       <a-sky src="#sky" rotation="0 0 0"></a-sky>
       <a-entity id="particles" particle-system="preset: snow"></a-entity>
       
-      <a-entity id="avatar" camera look-controls wasd-controls position="0 1.6 0"
-                >
+      <a-entity id="avatar" camera look-controls wasd-controls position="0 1.6 0">
         <a-animation begin="jump" attribute="position" duration="200" to="0 5 0" easing="linear"></a-animation>
         <a-animation begin="jump" attribute="position" duration="200" from="0 5 0" to="0 1.6 0" easing="linear" delay="300"></a-animation>
       </a-entity>
